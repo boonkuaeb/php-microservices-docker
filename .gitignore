@@ -1,3 +1,5 @@
 .idea/
+source/battle/.idea/
+source/user/.idea/
 source/battle/vendor/
 source/user/vendor/
