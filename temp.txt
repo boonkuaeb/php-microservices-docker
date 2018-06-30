@@ -1,0 +1,210 @@
+
+
+    ##
+    # User Microservice
+    ##
+    microservice_user_fpm:
+        build: ./microservices/user/php-fpm/
+        volumes_from:
+            - source_user
+        links:
+            - autodiscovery
+        expose:
+            - 9000
+        environment:
+            - BACKEND=microservice-user-nginx
+            - CONSUL=autodiscovery
+
+    microservice_user_nginx:
+        build: ./microservices/user/nginx/
+        volumes_from:
+            - source_user
+        links:
+            - autodiscovery
+            - microservice_user_fpm
+        environment:
+            - BACKEND=microservice-user-fpm
+            - CONSUL=autodiscovery
+        ports:
+            - 8084:80
+            - 9094:9090
+
+
+
+
+composer create-project laravel/lumen . "5.2.*"
+
+
+    - Can only install one of: symfony/console[v2.7.27, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.28, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.29, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.3, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.30, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.31, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.32, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.33, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.34, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.35, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.36, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.37, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.38, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.39, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.4, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.40, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.41, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.42, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.43, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.44, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.45, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.46, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.47, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.48, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.5, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.6, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.7, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.8, v3.0.9].
+    - Can only install one of: symfony/console[v2.7.9, v3.0.9].
+    - Installation request for symfony/console (locked at v3.0.9) -> satisfiable by symfony/console[v3.0.9].
+
+
+Installation failed, reverting ./composer.json to its original content.
+# clear
+
+# composer install
+Do not run Composer as root/super user! See https://getcomposer.org/root for details
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 74 installs, 0 updates, 0 removals
+  - Installing symfony/polyfill-util (v1.8.0): Loading from cache
+  - Installing symfony/polyfill-php56 (v1.8.0): Loading from cache
+  - Installing paragonie/random_compat (v1.4.3): Loading from cache
+  - Installing symfony/polyfill-mbstring (v1.8.0): Loading from cache
+  - Installing symfony/http-foundation (v3.0.9): Loading from cache
+  - Installing symfony/event-dispatcher (v3.2.14): Loading from cache
+  - Installing psr/log (1.0.2): Loading from cache
+  - Installing symfony/debug (v3.0.9): Loading from cache
+  - Installing symfony/http-kernel (v3.0.9): Loading from cache
+  - Installing symfony/polyfill-ctype (v1.8.0): Loading from cache
+  - Installing nikic/fast-route (v0.7.0): Loading from cache
+  - Installing mtdowling/cron-expression (v1.2.1): Loading from cache
+  - Installing monolog/monolog (1.23.0): Loading from cache
+  - Installing doctrine/inflector (v1.2.0): Loading from cache
+  - Installing illuminate/contracts (v5.2.45): Loading from cache
+  - Installing illuminate/support (v5.2.45): Loading from cache
+  - Installing symfony/finder (v3.0.9): Loading from cache
+  - Installing illuminate/filesystem (v5.2.45): Loading from cache
+  - Installing illuminate/container (v5.2.45): Loading from cache
+  - Installing illuminate/events (v5.2.45): Loading from cache
+  - Installing illuminate/view (v5.2.45): Loading from cache
+  - Installing symfony/translation (v3.0.9): Loading from cache
+  - Installing illuminate/validation (v5.2.45): Loading from cache
+  - Installing illuminate/translation (v5.2.45): Loading from cache
+  - Installing nesbot/carbon (1.31.1): Loading from cache
+  - Installing symfony/process (v3.0.9): Loading from cache
+  - Installing symfony/console (v3.0.9): Loading from cache
+  - Installing illuminate/console (v5.2.45): Loading from cache
+  - Installing illuminate/queue (v5.2.45): Loading from cache
+  - Installing illuminate/pipeline (v5.2.45): Loading from cache
+  - Installing illuminate/pagination (v5.2.45): Loading from cache
+  - Installing illuminate/session (v5.2.45): Loading from cache
+  - Installing illuminate/http (v5.2.45): Loading from cache
+  - Installing illuminate/hashing (v5.2.45): Loading from cache
+  - Installing illuminate/encryption (v5.2.45): Loading from cache
+  - Installing illuminate/database (v5.2.45): Loading from cache
+  - Installing illuminate/config (v5.2.45): Loading from cache
+  - Installing illuminate/cache (v5.2.45): Loading from cache
+  - Installing illuminate/bus (v5.2.45): Loading from cache
+  - Installing illuminate/broadcasting (v5.2.45): Loading from cache
+  - Installing illuminate/auth (v5.2.45): Loading from cache
+  - Installing laravel/lumen-framework (v5.2.9): Loading from cache
+  - Installing symfony/yaml (v3.3.17): Loading from cache
+  - Installing psr/container (1.0.0): Loading from cache
+  - Installing symfony/dependency-injection (v3.2.14): Loading from cache
+  - Installing symfony/filesystem (v3.4.12): Loading from cache
+  - Installing symfony/config (v3.2.14): Loading from cache
+  - Installing symfony/class-loader (v3.4.12): Loading from cache
+  - Installing container-interop/container-interop (1.2.0): Loading from cache
+  - Installing behat/transliterator (v1.2.0): Loading from cache
+  - Installing behat/gherkin (v4.5.1): Loading from cache
+  - Installing behat/behat (v3.4.3): Loading from cache
+  - Installing vlucas/phpdotenv (v2.4.0): Loading from cache
+  - Installing fzaninotto/faker (v1.7.1): Loading from cache
+  - Installing sebastian/version (1.0.6): Loading from cache
+  - Installing sebastian/global-state (1.1.1): Loading from cache
+  - Installing sebastian/recursion-context (1.0.5): Loading from cache
+  - Installing sebastian/exporter (1.2.2): Loading from cache
+  - Installing sebastian/environment (1.3.8): Loading from cache
+  - Installing sebastian/diff (1.4.3): Loading from cache
+  - Installing sebastian/comparator (1.2.4): Loading from cache
+  - Installing doctrine/instantiator (1.0.5): Loading from cache
+  - Installing phpunit/php-text-template (1.2.1): Loading from cache
+  - Installing phpunit/phpunit-mock-objects (2.3.8): Loading from cache
+  - Installing phpunit/php-timer (1.0.9): Loading from cache
+  - Installing phpunit/php-file-iterator (1.4.5): Loading from cache
+  - Installing phpunit/php-token-stream (1.4.12): Loading from cache
+  - Installing phpunit/php-code-coverage (2.2.4): Loading from cache
+  - Installing webmozart/assert (1.3.0): Loading from cache
+  - Installing phpdocumentor/reflection-common (1.0.1): Loading from cache
+  - Installing phpdocumentor/type-resolver (0.4.0): Loading from cache
+  - Installing phpdocumentor/reflection-docblock (4.3.0): Loading from cache
+  - Installing phpspec/prophecy (1.7.6): Loading from cache
+  - Installing phpunit/phpunit (4.8.36): Loading from cache
+paragonie/random_compat suggests installing ext-libsodium (Provides a modern crypto API that can be used to generate random bytes.)
+
+symfony/http-kernel suggests installing symfony/browser-kit ()
+composer require symfony/browser-kit
+
+
+symfony/http-kernel suggests installing symfony/var-dumper ()
+composer require symfony/var-dumper
+composer require aws/aws-sdk-php
+composer require doctrine/couchdb
+composer require ext-mongo
+composer require graylog2/gelf-php
+composer require mongodb/mongodb
+composer require php-amqplib/php-amqplib
+composer require php-console/php-console
+composer require rollbar/rollbar
+composer require ruflin/elastica
+composer require sentry/sentry
+
+
+
+composer require ruflin/elastica
+composer require ruflin/elastica
+composer require ruflin/elastica
+composer require ruflin/elastica
+
+monolog/monolog suggests installing aws/aws-sdk-php (Allow sending log messages to AWS services like DynamoDB)
+monolog/monolog suggests installing doctrine/couchdb (Allow sending log messages to a CouchDB server)
+monolog/monolog suggests installing ext-amqp (Allow sending log messages to an AMQP server (1.0+ required))
+monolog/monolog suggests installing ext-mongo (Allow sending log messages to a MongoDB server)
+monolog/monolog suggests installing graylog2/gelf-php (Allow sending log messages to a GrayLog2 server)
+monolog/monolog suggests installing mongodb/mongodb (Allow sending log messages to a MongoDB server via PHP Driver)
+monolog/monolog suggests installing php-amqplib/php-amqplib (Allow sending log messages to an AMQP server using php-amqplib)
+monolog/monolog suggests installing php-console/php-console (Allow sending log messages to Google Chrome)
+monolog/monolog suggests installing rollbar/rollbar (Allow sending log messages to Rollbar)
+monolog/monolog suggests installing ruflin/elastica (Allow sending log messages to an Elastic Search server)
+monolog/monolog suggests installing sentry/sentry (Allow sending log messages to a Sentry server)
+illuminate/support suggests installing jeremeamia/superclosure (Required to be able to serialize closures (~2.2).)
+illuminate/support suggests installing symfony/var-dumper (Improves the dd function (2.8.*|3.0.*).)
+illuminate/filesystem suggests installing league/flysystem (Required to use the Flysystem local and FTP drivers (~1.0).)
+illuminate/filesystem suggests installing league/flysystem-aws-s3-v3 (Required to use the Flysystem S3 driver (~1.0).)
+illuminate/filesystem suggests installing league/flysystem-rackspace (Required to use the Flysystem Rackspace driver (~1.0).)
+illuminate/console suggests installing guzzlehttp/guzzle (Required to use the ping methods on schedules (~5.3|~6.0).)
+illuminate/queue suggests installing aws/aws-sdk-php (Required to use the SQS queue driver (~3.0).)
+illuminate/queue suggests installing illuminate/redis (Required to use the Redis queue driver (5.2.*).)
+illuminate/queue suggests installing pda/pheanstalk (Required to use the Beanstalk queue driver (~3.0).)
+illuminate/database suggests installing doctrine/dbal (Required to rename columns and drop SQLite columns (~2.4).)
+illuminate/cache suggests installing illuminate/redis (Required to use the redis cache driver (5.2.*).)
+illuminate/broadcasting suggests installing pusher/pusher-php-server (Required to use the Pusher broadcast driver (~2.0).)
+symfony/dependency-injection suggests installing symfony/expression-language (For using expressions in service container configuration)
+symfony/dependency-injection suggests installing symfony/proxy-manager-bridge (Generate service proxies to lazy load them)
+symfony/class-loader suggests installing symfony/polyfill-apcu (For using ApcClassLoader on HHVM)
+behat/behat suggests installing behat/symfony2-extension (for integration with Symfony2 web framework)
+behat/behat suggests installing behat/yii-extension (for integration with Yii web framework)
+behat/behat suggests installing behat/mink-extension (for integration with Mink testing framework)
+sebastian/global-state suggests installing ext-uopz (*)
+phpunit/phpunit-mock-objects suggests installing ext-soap (*)
+phpunit/php-code-coverage suggests installing ext-xdebug (>=2.2.1)
+phpunit/phpunit suggests installing phpunit/php-invoker (~1.1)
