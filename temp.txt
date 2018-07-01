@@ -208,3 +208,7 @@ sebastian/global-state suggests installing ext-uopz (*)
 phpunit/phpunit-mock-objects suggests installing ext-soap (*)
 phpunit/php-code-coverage suggests installing ext-xdebug (>=2.2.1)
 phpunit/phpunit suggests installing phpunit/php-invoker (~1.1)
+
+
+
+vendor/bin/behat --init
