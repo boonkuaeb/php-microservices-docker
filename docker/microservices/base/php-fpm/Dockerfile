@@ -2,7 +2,7 @@ FROM php:7.0-fpm
 
 RUN apt-get update && apt-get -y install \
         git g++ libcurl4-gnutls-dev libicu-dev libmcrypt-dev libpq-dev libxml2-dev unzip zlib1g-dev \
-    && docker-php-ext-install curl intl json mbstring mcrypt pdo pdo_pgsql xml \
+    && docker-php-ext-install curl intl json mbstring mcrypt pdo pdo_mysql pdo_pgsql xml \
     && apt-get autoremove && apt-get autoclean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -12,10 +12,6 @@ RUN pecl install -o -f redis \
 
 RUN echo 'date.timezone="Europe/Madrid"' >>  /usr/local/etc/php/conf.d/date.ini
 RUN echo 'session.save_path = "/tmp"' >>  /usr/local/etc/php/conf.d/session.ini
-
-# Composer
-RUN curl -sS https://getcomposer.org/installer | php
-RUN mv composer.phar /usr/local/bin/composer
 
 ENV CONSUL_TEMPLATE_VERSION 0.16.0
 ENV CONSUL_TEMPLATE_CHECKSUM 064b0b492bb7ca3663811d297436a4bbf3226de706d2b76adade7021cd22e156
